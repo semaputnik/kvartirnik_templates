@@ -1,0 +1,10 @@
+{{ event.event_name }} <br>
+Дата: {{ "%02d"|format(event.date.day) }}.{{ "%02d"|format(event.date.month) }}
+{{ "%02d"|format(event.date.hour) }}:{{ "%02d"|format(event.date.minute )}} <br>
+Место: {{ event.location }}
+<br><br>
+Количество билетов: {{ tickets_amount }}
+{% if event.price > 0 %}
+<br>
+Донат от: {{ tickets_amount * event.price }} евро
+{% endif %}

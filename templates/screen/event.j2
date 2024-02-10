@@ -1,0 +1,40 @@
+{{ event_name }}
+
+<br><br>
+
+{{ description }}
+
+<br><br>
+{% if date %}
+Дата и время:  {{ "%02d"|format(date.day) }}-{{ "%02d"|format(date.month) }}-{{ date.year }} {{ "%02d"|format(date.hour) }}:{{ "%02d"|format(date.minute) }}
+{% else %}
+Дата и время: None
+{% endif %}
+
+{% if duration %}
+<br><br>
+Продолжительность: {{ duration }}
+{% endif %}
+
+<br><br>
+Локация: {{ location }}
+
+{% if additional_info %}
+<br><br>
+Дополнительная информация: {{ additional_info }}
+{% endif %}
+
+{% if available_places and available_places >= 0 %}
+<br><br>
+Доступные места: ({{available_places}}/{{ capacity }})
+{% else %}
+<br><br>
+Доступные места: мест нет (sold out)
+{% endif %}
+
+{% if price is not none and price >= 0 %}
+    <br><br>
+    {% if price > 0 %} Донат за билет от: {{ price }} евро
+    {% else %} Донаты приветствуются
+    {% endif %}
+{% endif %}

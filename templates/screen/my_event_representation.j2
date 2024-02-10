@@ -1,0 +1,33 @@
+{{ event.event_name }}
+<br><br>
+{{ event.description }}
+<br><br>
+Дата и время: {{ day }}-{{ month }}-{{ year }} {{ hour }}:{{ minutes }}
+
+{% if event.duration %}
+<br><br>
+Продолжительность: {{ event.duration }}
+{% endif %}
+
+<br><br>
+Локация: {{ event.location }}
+
+{% if event.additional_info %}
+<br><br>
+Дополнительная информация: {{ event.additional_info }}
+{% endif %}
+
+{% if event.price and event.price > 0 %}
+<br><br>
+Цена: {{ event.price }} евро
+{% endif %}
+
+<br><br>
+Политика возврата: {{ event.refund_policy }}
+<br>
+{% for visit in visits %}
+    <br>======================<br>
+    Дата бронирования: {{ "%02d"|format(visit.created_at.day) }}-{{ "%02d"|format(visit.created_at.month) }}-{{ visit.created_at.year }} {{ "%02d"|format(visit.created_at.hour) }}:{{ "%02d"|format(visit.created_at.minute) }} <br>
+    Статус платежа: {{ visit.status.name }} <br>
+    Количество билетов: {{ visit.amount }}
+{% endfor %}

@@ -1,0 +1,8 @@
+Username: {{ person.username }} <br>
+Телефон: {{ person.phone }} <br>
+Контактная информация: {{ person.contact_info }} <br>
+{% for visit in visits %}
+    <br>======================<br>
+    Статус платежа: {{ visit.status.name }} <br>
+    Количество билетов: {{ visit.amount }}
+{% endfor %}

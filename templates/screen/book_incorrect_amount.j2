@@ -1,0 +1,8 @@
+Некорректное число билетов. Попробуйте еще раз.
+<br>
+{% if available_places == 1 %}
+Доступно только одно место. Введите цифру 1
+{% endif %}
+{% if available_places > 1 %}
+Доступно {{available_places}} мест. Введите цифру от 1 до {{available_places}}
+{% endif %}

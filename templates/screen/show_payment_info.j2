@@ -1,0 +1,7 @@
+Донат от: {{ payment.person.username }} <br>
+Контактная информация: {{ payment.person.contact_info }} <br>
+Мероприятие: {{ payment.event.event_name }} <br>
+================ <br>
+Донат за билет: {{ payment.event.price }} <br>
+Количество билетов: {{ payment.amount }} <br>
+Донат от: {{ payment.event.price * payment.amount}}
