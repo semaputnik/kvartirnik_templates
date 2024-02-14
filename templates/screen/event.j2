@@ -24,12 +24,14 @@
 Дополнительная информация: {{ additional_info }}
 {% endif %}
 
-{% if available_places and available_places >= 0 and is_admin %}
-<br><br>
-Доступные места: ({{available_places}}/{{ capacity }})
+{% if available_places and available_places >= 0 %}
+    {% if is_admin %}
+    <br><br>
+    Доступные места: ({{available_places}}/{{ capacity }})
+    {% endif %}
 {% else %}
-<br><br>
-Доступные места: мест нет (sold out)
+    <br><br>
+    Доступные места: мест нет (sold out)
 {% endif %}
 
 {% if price is not none and price >= 0 %}
