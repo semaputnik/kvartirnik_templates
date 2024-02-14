@@ -24,7 +24,7 @@
 Дополнительная информация: {{ additional_info }}
 {% endif %}
 
-{% if available_places and available_places >= 0 %}
+{% if available_places and available_places >= 0 and is_admin %}
 <br><br>
 Доступные места: ({{available_places}}/{{ capacity }})
 {% else %}
